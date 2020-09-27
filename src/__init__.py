@@ -2,7 +2,7 @@
 
 import requests, termcolor, sys, colorama, hashlib
 x = 0
-symbol_characters = "!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"
+symbol_characters = "!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~","à","á","â","ä","æ","ã","å","ā","ç","ć","č"
 colorama.init()
 user_input = input("Password: ")
 common_passwords = requests.get("https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt")
