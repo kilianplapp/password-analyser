@@ -1,4 +1,4 @@
-# Author: https://github.com/deceitfulvision
+# Author: https://github.com/KilianPlapp
 
 import requests, termcolor, sys, colorama, hashlib
 x = 0
