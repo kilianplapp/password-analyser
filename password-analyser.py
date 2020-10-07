@@ -1,4 +1,8 @@
 # Author: https://github.com/KilianPlapp
 from src import main
-def password_analyser():
-    main.password_analyser()
+import argparse
+
+parser = argparse.ArgumentParser(description="Check the strength of your password.")
+parser.add_argument('user_input', type=str, help=':Input a password')
+args = parser.parse_args()
+main.password_analyser(args)
