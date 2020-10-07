@@ -1,11 +1,8 @@
 # Author: https://github.com/KilianPlapp
 import requests, termcolor, sys, colorama, hashlib, argparse
-parser = argparse.ArgumentParser(description="Check the strength of your password.")
-parser.add_argument('user_input', type=str, help=':Input a password')
-args = parser.parse_args()
 
 def password_analyser(user_input):
-    x = 0
+    x,userinput = 0,str(user_input)
     symbol_characters = "!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"
     colorama.init()
     common_passwords = requests.get("https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt")
@@ -13,7 +10,7 @@ def password_analyser(user_input):
     else:
         termcolor.cprint(f'Error Requesting Common Password List! Code: {common_passwords.status_code}', 'red')
         sys.exit()
-    y = hashlib.sha1(user_input.encode())
+    y = hashlib.sha1(userinput.encode())
     sha_1 = y.hexdigest()
     haveibeenpwnedapi = requests.get(f"https://api.pwnedpasswords.com/range/{sha_1[:5]}")
     if(haveibeenpwnedapi.status_code == 200): termcolor.cprint('Succesfully Contacted HaveIBeenPwned API!', 'green')
@@ -27,20 +24,20 @@ def password_analyser(user_input):
             break
         else: pwned = False
     for line in common_passwords.text.splitlines():
-        if(line == user_input):
+        if(line == userinput):
             is_a_common_password = True
             break
         else: is_a_common_password = False
-    for letter in user_input: 
+    for letter in userinput: 
         x = x + 1
         if(x >= 8): over_eight_characters = True
         else: over_eight_characters = False
-    for letter in user_input:
+    for letter in userinput:
         if(letter.isupper()):
             contains_upper_case = True
             break
         else: contains_upper_case = False
-    for letter in user_input:
+    for letter in userinput:
         if(letter in symbol_characters):
             symbol_used = True
             break
@@ -57,5 +54,3 @@ def password_analyser(user_input):
     if(pwned): termcolor.cprint(f'Password Pwned {z[1]} times! ','red')
     else: termcolor.cprint("Password not Pwned!", 'green')
     print("---------------------------------------")
-
-print(password_analyser(args.user_input))
