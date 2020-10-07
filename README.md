@@ -6,8 +6,8 @@ No sensitive information is shared at all. Only the first five characters of the
 `pip install requests termcolor colorama hashlib argparse`
 
 # Installation
-`git clone https://github.com/KilianPlapp/password-analyser.git`
-`cd password-analyser`
-`python3 password-analyser.py YOURPASSWORD`
-Of course, replace `YOURPASSWORD` with a password of your choice/
+`git clone https://github.com/KilianPlapp/password-analyser.git`  
+`cd password-analyser`  
+`python3 password-analyser.py YOURPASSWORD`  
+Of course, replace `YOURPASSWORD` with a password of your choice.
 
