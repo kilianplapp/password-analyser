@@ -9,7 +9,10 @@ parser.add_argument("-f", "--file", type = str, default = "", help = "Username l
 args = parser.parse_args()
 
 if args.file == "" :
-    main.password_analyser(vars(args)['user_input'])
+    if args.user_input :
+        main.password_analyser(vars(args)['user_input'])
+    else :
+        parser.print_help()
 
 else :
     a = open(args.file, "r").readlines()
