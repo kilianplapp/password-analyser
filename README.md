@@ -10,7 +10,8 @@ No sensitive information is shared at all. Only the first five characters of the
 `cd password-analyser`  
 
 # Usage
-`python3 password-analyser.py password`  
+`python3 password-analyser.py PASSSWORD` 
+Replace PASSWORD with your desired password  
 Or, to read a password from a file:
 `python3 password-analyser.py -f FILE
 
