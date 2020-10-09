@@ -13,5 +13,4 @@ No sensitive information is shared at all. Only the first five characters of the
 `python3 password-analyser.py PASSSWORD`   
 Replace PASSWORD with your desired password  
 Or, to read a password from a file:  
-`python3 password-analyser.py -f FILE
-
+`python3 password-analyser.py -f FILE`   
