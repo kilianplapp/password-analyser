@@ -6,10 +6,16 @@ No sensitive information is shared at all. Only the first five characters of the
 `pip install requests termcolor colorama hashlib argparse`
 
 # Installation
+If you haven't already, install git [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+
+Then, clone the repository to your local machine with:
 `git clone https://github.com/KilianPlapp/password-analyser.git`  
-`cd password-analyser`  
 
 # Usage
+Change directories into the cloned repository.
+`cd password-analyser`
+
+To run:
 `python3 password-analyser.py PASSSWORD`   
 Replace PASSWORD with your desired password  
 Or, to read a password from a file:  
