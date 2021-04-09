@@ -17,8 +17,8 @@ def password_analyser(userinput):
             'red')
         sys.exit()
 
-    y = hashlib.sha1(userinput.encode())
-    sha_1 = y.hexdigest()
+    hash_value = hashlib.sha1(userinput.encode())
+    sha_1 = hash_value.hexdigest()
     haveibeenpwnedapi = requests.get(
         f"https://api.pwnedpasswords.com/range/{sha_1[:5]}")
 
@@ -31,8 +31,8 @@ def password_analyser(userinput):
         sys.exit()
 
     for line in haveibeenpwnedapi.text.splitlines():
-        z = line.split(':')
-        if (z[0].lower() == sha_1[5:]):
+        colonsplit = line.split(':')
+        if (colonsplit[0].lower() == sha_1[5:]):
             pwned = True
             break
     else:
@@ -76,6 +76,6 @@ def password_analyser(userinput):
                          'red')
     if (symbol_used): termcolor.cprint('Contains a symbol!', 'green')
     else: termcolor.cprint('Does not contain a symbol!', 'red')
-    if (pwned): termcolor.cprint(f'Password Pwned {z[1]} times! ', 'red')
+    if (pwned): termcolor.cprint(f'Password Pwned {colonsplit[1]} times! ', 'red')
     else: termcolor.cprint("Password not Pwned!", 'green')
     print("---------------------------------------")

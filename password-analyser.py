@@ -20,9 +20,9 @@ if args.file == "":
         parser.print_help()
 
 else:
-    a = open(args.file, "r").readlines()
+    reader = open(args.file, "r").readlines()
 
-    file = [s.rstrip() for s in a]
+    file = [s.rstrip() for s in reader]
     file.reverse()
 
     for lines in file:
